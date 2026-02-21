@@ -52,6 +52,49 @@ app.get('/dashboard', (req, res) => {
   }
 });
 
+app.post('/nueva-tarjeta', (req, res) => {
+  try {
+    const { titulo, descripcion, prioridad, tag, listId, autor, responsable } = req.body;
+
+    const dataPath = path.join(__dirname, 'data', 'data.json');
+    const data = fs.readFileSync(dataPath, 'utf-8');
+    const parsedData = JSON.parse(data);
+
+    const board = parsedData.boards[0];
+    const list = board.lists.find(l => l.id === Number(listId));
+
+    if (!list) {
+      return res.status(400).send('Lista no encontrada');
+    }
+
+    const newCard = {
+      id: Date.now(),
+      titulo,
+      descripcion,
+      prioridad,
+      tag,
+      estado: list.title,
+      fecha_creacion: new Date().toISOString().slice(0, 10),
+      fecha_inicio: null,
+      fecha_fin: null,
+      autor,
+      responsable
+    };
+
+    // Leer → Modificar
+    list.cards.push(newCard);
+
+    // Convertir a JSON → Escribir
+    fs.writeFileSync(dataPath, JSON.stringify(parsedData, null, 2));
+
+    // Redirigir al dashboard
+    res.redirect('/dashboard');
+  } catch (error) {
+    console.error('Error creando tarjeta:', error);
+    res.status(500).send('Error al crear la tarjeta');
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 KanbanPro corriendo en http://localhost:${PORT}`);
 });

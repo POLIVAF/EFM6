@@ -1,5 +1,36 @@
 <h2>{{board.name}}</h2>
 
+<!-- Formulario HU-03: crear nueva tarjeta -->
+<form action="/nueva-tarjeta" method="POST" class="new-card-form">
+  <input type="text" name="titulo" placeholder="Título" required />
+  <textarea name="descripcion" placeholder="Descripción" required></textarea>
+
+  <select name="prioridad" required>
+    <option value="Feature">Feature</option>
+    <option value="Task">Task</option>
+    <option value="Bug">Bug</option>
+    <option value="Improvement">Improvement</option>
+  </select>
+
+  <select name="tag" required>
+    <option value="FEATURE">FEATURE</option>
+    <option value="BUG">BUG</option>
+    <option value="HOTFIX">HOTFIX</option>
+  </select>
+
+  <!-- Selector de columna -->
+  <select name="listId" required>
+    {{#each board.lists}}
+      <option value="{{id}}">{{title}}</option>
+    {{/each}}
+  </select>
+
+  <input type="text" name="autor" placeholder="Autor" required />
+  <input type="text" name="responsable" placeholder="Responsable" required />
+
+  <button type="submit">➕ Agregar tarjeta</button>
+</form>
+
 <section class="board">
   {{#each board.lists}}
     <div class="column">
@@ -9,7 +40,6 @@
         <div class="card">
           <h4>{{titulo}}</h4>
           <p>{{descripcion}}</p>
-
           <small>
             🏷 {{tag}} |
             ⚡ {{prioridad}} |
