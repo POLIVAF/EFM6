@@ -1,0 +1,85 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "name": "KanbanPro",
+      "lists": [
+        {
+          "id": 1,
+          "title": "Backlog",
+          "cards": [
+            {
+              "id": 101,
+              "titulo": "Definir estructura del proyecto",
+              "descripcion": "Crear carpetas base, configuración de Express y Handlebars.",
+              "prioridad": "Feature",
+              "tag": "FEATURE",
+              "estado": "Backlog",
+              "fecha_creacion": "2026-02-18",
+              "fecha_inicio": null,
+              "fecha_fin": null,
+              "autor": "Pablo",
+              "responsable": "Carlos"
+            },
+            {
+              "id": 102,
+              "titulo": "Corregir error en lectura de JSON",
+              "descripcion": "El dashboard no carga cuando el JSON está mal formado.",
+              "prioridad": "Bug",
+              "tag": "BUG",
+              "estado": "Backlog",
+              "fecha_creacion": "2026-02-19",
+              "fecha_inicio": null,
+              "fecha_fin": null,
+              "autor": "Pablo",
+              "responsable": "Pablo"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Doing",
+          "cards": [
+            {
+              "id": 201,
+              "titulo": "Conectar CSS estilo Kanban",
+              "descripcion": "Agregar estilos base para columnas y tarjetas.",
+              "prioridad": "Task",
+              "tag": "HOTFIX",
+              "estado": "Doing",
+              "fecha_creacion": "2026-02-19",
+              "fecha_inicio": "2026-02-20",
+              "fecha_fin": null,
+              "autor": "Pablo",
+              "responsable": "Pablo"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Review",
+          "cards": []
+        },
+        {
+          "id": 4,
+          "title": "Done",
+          "cards": [
+            {
+              "id": 301,
+              "titulo": "Inicializar proyecto",
+              "descripcion": "Crear package.json y levantar servidor Express.",
+              "prioridad": "Task",
+              "tag": "FEATURE",
+              "estado": "Done",
+              "fecha_creacion": "2026-02-16",
+              "fecha_inicio": "2026-02-16",
+              "fecha_fin": "2026-02-16",
+              "autor": "Pablo",
+              "responsable": "Pablo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

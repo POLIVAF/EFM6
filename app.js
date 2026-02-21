@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const exphbs = require('express-handlebars');
 
@@ -32,6 +33,23 @@ app.get('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.render('login');
+});
+
+// HU-02: Dashboard con datos persistentes
+app.get('/dashboard', (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'data', 'data.json');
+    const data = fs.readFileSync(dataPath, 'utf-8'); // lee el archivo
+    const parsedData = JSON.parse(data); // parsea a objeto JS
+
+   // Tomamos el primer board del arreglo
+    const board = parsedData.boards[0];
+
+    res.render('dashboard', { board });
+  } catch (error) {
+    console.error('Error leyendo data.json:', error);
+    res.status(500).send('Error cargando el dashboard');
+  }
 });
 
 app.listen(PORT, () => {

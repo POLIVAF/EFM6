@@ -1,0 +1,26 @@
+<h2>{{board.name}}</h2>
+
+<section class="board">
+  {{#each board.lists}}
+    <div class="column">
+      <h3>{{title}}</h3>
+
+      {{#each cards}}
+        <div class="card">
+          <h4>{{titulo}}</h4>
+          <p>{{descripcion}}</p>
+
+          <small>
+            🏷 {{tag}} |
+            ⚡ {{prioridad}} |
+            👤 {{responsable}}
+          </small>
+        </div>
+      {{/each}}
+
+      {{#unless cards.length}}
+        <small>No hay tarjetas</small>
+      {{/unless}}
+    </div>
+  {{/each}}
+</section>
