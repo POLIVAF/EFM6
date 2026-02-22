@@ -33,6 +33,19 @@
               "fecha_fin": null,
               "autor": "Pablo",
               "responsable": "Pablo"
+            },
+            {
+              "id": 1771722920628,
+              "titulo": "fallo en el front",
+              "descripcion": "se encuentra bug en la actualización de la pagina",
+              "prioridad": "Bug",
+              "tag": "BUG",
+              "estado": "Backlog",
+              "fecha_creacion": "2026-02-22",
+              "fecha_inicio": null,
+              "fecha_fin": null,
+              "autor": "Pablo Olivares",
+              "responsable": "Elvis"
             }
           ]
         },
